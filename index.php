@@ -217,7 +217,7 @@ function get_graph($conn, $id) {
         echo "          var data = google.visualization.arrayToDataTable([\n";
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
-        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by year , month , day , hour , minute limit 180";
+        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by year , month , day , hour , minute";
         $result = $conn->query($sql);
         $numofrow=$result->num_rows;
         $rowcount=0;
