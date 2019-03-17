@@ -142,7 +142,7 @@ function print_bpinputform($bpid, $name) {
 }
 #####################################################
 function print_login_form() {
-	echo "<h3>Sổ tay theo dõi huyết áp</h3>\n";
+	echo "<h3 align='center'>Sổ tay theo dõi huyết áp</h3>\n";
 	echo "	 <form action=\"./\" method=\"post\">\n";
 	echo "	  <div class=\"form-group\" align=\"center\">\n";
 	echo "		<input type=\"text\" class=\"form-control\" name=\"uname\" placeholder=\"Tên đăng nhập\" required>\n";
