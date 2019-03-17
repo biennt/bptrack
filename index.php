@@ -24,7 +24,6 @@ if(isset($_SESSION["bpid"])) {
 $limit=180; // limit result to 180 records
 
 ### DB Connect ###
-echo "Hello..";
 require_once 'dbconf.php';
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
