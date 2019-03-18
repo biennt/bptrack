@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Saigon');
 ### "Exit" button clicked ###
 if(isset($_GET['exit'])) {
 	if ($_GET['exit'] == '1') {
