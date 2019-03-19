@@ -1,4 +1,3 @@
 # bptrack
-bptrack on Heroku
-Blood presure recording
+Blood presure recording<br>
 feedback to bien at bienlab dot com
