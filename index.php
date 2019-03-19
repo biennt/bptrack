@@ -98,7 +98,7 @@ function print_footer(){
 }
 #####################################################
 function savebpinfo($conn, $id, $time, $systolic, $diastolic, $heart_beat) {
-	$sql = "INSERT INTO bpmain (bpid, recordtime, systolic, diastolic, heart_beat) values('" . $id . "','" . $time "'," . $systolic . "," . $diastolic . "," . $heart_beat . ");";
+	$sql = "INSERT INTO bpmain (bpid, recordtime, systolic, diastolic, heart_beat) values('" . $id . "','" . $time . "'," . $systolic . "," . $diastolic . "," . $heart_beat . ")";
 	if (mysqli_query($conn, $sql)) {
 		echo "Đã lưu thành công<br>";
 	} else {
