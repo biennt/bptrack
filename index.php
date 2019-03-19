@@ -201,7 +201,8 @@ function get_graph($conn, $id) {
         echo "          var data = google.visualization.arrayToDataTable([\n";
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
-        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by recordtime";
+        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by recordtime where recordtime > DATE_SUB(now(), INTERVAL 1 MONTH)
+";
         $result = $conn->query($sql);
         $numofrow=$result->num_rows;
         $rowcount=0;
