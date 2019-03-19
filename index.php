@@ -205,10 +205,10 @@ function get_graph($conn, $id) {
         echo "          var data = google.visualization.arrayToDataTable([\n";
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
-        $sql1 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 30 DAY) and NOW()";
+        $sql1 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 30 DAY) and NOW() order by recordtime";
         #echo $sql . "\n";
 		$result1 = $conn->query($sql1);
-        $numofrow1=$result2->num_rows;
+        $numofrow1=$result1->num_rows;
         $rowcount1=0;
         if ($numofrow1> 0) {
                 // output data of each row
@@ -257,7 +257,7 @@ function get_graph($conn, $id) {
         echo "          var data = google.visualization.arrayToDataTable([\n";
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
-        $sql2 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 180 DAY) and NOW()";
+        $sql2 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 180 DAY) and NOW() order by recordtime";
         #echo $sql . "\n";
 		$result2 = $conn->query($sql2);
         $numofrow2=$result2->num_rows;
@@ -309,7 +309,7 @@ function get_graph($conn, $id) {
         echo "          var data = google.visualization.arrayToDataTable([\n";
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
-        $sql3 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 365 DAY) and NOW()";
+        $sql3 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 365 DAY) and NOW() order by recordtime";
         #echo $sql . "\n";
 		$result3 = $conn->query($sql3);
         $numofrow3=$result3->num_rows;
