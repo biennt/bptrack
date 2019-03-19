@@ -210,7 +210,7 @@ function get_graph($conn, $id) {
 		$result1 = $conn->query($sql1);
         $numofrow1=$result2->num_rows;
         $rowcount1=0;
-        if ($numofrow 1> 0) {
+        if ($numofrow1> 0) {
                 // output data of each row
                 while($row1 = $result1->fetch_assoc()) {
                         $rowcount1++;
