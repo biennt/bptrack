@@ -202,7 +202,8 @@ function get_graph($conn, $id) {
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
         $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 30 DAY) and NOW() )";
-        $result = $conn->query($sql);
+        echo $sql . "\n";
+	$result = $conn->query($sql);
         $numofrow=$result->num_rows;
         $rowcount=0;
         if ($numofrow > 0) {
