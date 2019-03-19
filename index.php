@@ -63,8 +63,9 @@ if ($bpid=="notset") {
 		}
 	}
 		echo "<hr>\n";
-		echo "<div id=\"curve_chart\"></div>\n";
-		echo "<div id=\"curve_chart\"></div>\n";
+		echo "<div id=\"30_chart\"></div>\n";
+		echo "<br>\n";
+		echo "<div id=\"180_chart\"></div>\n";
 		get_rawdata($conn, $bpid, $name);
 		echo "<br><a href=\"./?exit=1\" class=\"btn btn-warning\" role=\"button\">Thoát (Exit)</a><br>\n";
 }
@@ -242,10 +243,11 @@ function get_graph($conn, $id) {
 				echo "            seriesType: 'line',\n";
         echo "			  series: {2: {type: 'bars'}}\n";
         echo "          };\n";
-        echo "          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));\n";
+        echo "          var chart = new google.visualization.LineChart(document.getElementById('30_chart'));\n";
         echo "  chart.draw(data, options);\n";
         echo "    }\n";
         echo "  </script>\n";
+
         echo "  <script type=\"text/javascript\">\n";
         echo "    google.charts.load('current', {'packages':['corechart']});\n";
         echo "    google.charts.setOnLoadCallback(drawChart);\n";
@@ -293,7 +295,7 @@ function get_graph($conn, $id) {
 				echo "            seriesType: 'line',\n";
         echo "			  series: {2: {type: 'bars'}}\n";
         echo "          };\n";
-        echo "          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));\n";
+        echo "          var chart = new google.visualization.LineChart(document.getElementById('180_chart'));\n";
         echo "  chart.draw(data, options);\n";
         echo "    }\n";
         echo "  </script>\n";
