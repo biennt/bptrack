@@ -231,7 +231,7 @@ function get_graph($conn, $id) {
         ############################################################
         echo "          ]);\n";
         echo "          var options = {\n";
-        echo "            title: '',\n";
+        echo "            title: 'Biểu đồ 30 ngày gần đây',\n";
         echo "            curveType: 'function',\n";
 				echo "				width: '100%',\n";
 				echo "				height: '600',\n";
