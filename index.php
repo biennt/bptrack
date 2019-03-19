@@ -22,8 +22,6 @@ if(isset($_SESSION["bpid"])) {
 
 ############################
 
-$limit=180; // limit result to 180 records
-
 ### DB Connect ###
 require_once 'dbconf.php';
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -66,7 +64,7 @@ if ($bpid=="notset") {
 	}
 		echo "<hr>\n";
 		echo "<div id=\"curve_chart\"></div>\n";
-		get_rawdata($conn, $bpid, $name, $limit);
+		get_rawdata($conn, $bpid, $name);
 		echo "<br><a href=\"./?exit=1\" class=\"btn btn-warning\" role=\"button\">Thoát (Exit)</a><br>\n";
 }
 
@@ -100,17 +98,7 @@ function print_footer(){
 }
 #####################################################
 function savebpinfo($conn, $id, $time, $systolic, $diastolic, $heart_beat) {
-	$strdatetime = explode(" ",$time);
-	$strdate = $strdatetime[1];
-	$strtime = $strdatetime[0];
-	$s_time = explode(":", $strtime);
-	$s_date = explode("/", $strdate);
-	$minute = $s_time[1];
-	$hour = $s_time[0];
-	$day = $s_date[0];
-	$month = $s_date[1];
-	$year = $s_date[2];
-	$sql = "INSERT INTO bpmain (bpid, year, month, day, hour, minute, systolic, diastolic, heart_beat) values('" . $id . "'," . $year . "," . $month . "," . $day . "," . $hour . "," . $minute . "," . $systolic . "," . $diastolic . "," . $heart_beat . ");";
+	$sql = "INSERT INTO bpmain (bpid, recordtime, systolic, diastolic, heart_beat) values('" . $id . "','" . $time "'," . $systolic . "," . $diastolic . "," . $heart_beat . ");";
 	if (mysqli_query($conn, $sql)) {
 		echo "Đã lưu thành công<br>";
 	} else {
@@ -124,7 +112,7 @@ function print_bpinputform($bpid, $name) {
 	echo "<form method='POST' action=\"./\">\n";
 	echo "  <div class=\"form-group\">\n";
 	echo "    <label for=\"Time\">Thời gian đo</label>\n";
-	echo "    <input type=\"text\" class=\"form-control\" name=\"time\" id=\"time\" value='" . get_datatime() . "'>\n";
+	echo "    <input type=\"text\" class=\"form-control\" name=\"time\" id=\"time\" value='" . date('Y-m-d H:i:s') . "'>\n";
 	echo "  </div>\n";
 	echo "  <div class=\"form-group\">\n";
 	echo "    <label for=\"systolic\">Tâm thu (Systolic)</label>\n";
@@ -202,12 +190,7 @@ function do_create_account($conn, $uname, $upass) {
 	}
 	return $bpid;
 }
-#####################################################
-function get_datatime() {
-	$returndate=date('H:i d/m/Y');
-	//echo $returndate;
-	return $returndate;
-}
+
 #####################################################
 function get_graph($conn, $id) {
         echo "<script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>\n";
@@ -218,7 +201,7 @@ function get_graph($conn, $id) {
         echo "          var data = google.visualization.arrayToDataTable([\n";
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
-        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by year , month , day , hour , minute";
+        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by recordtime";
         $result = $conn->query($sql);
         $numofrow=$result->num_rows;
         $rowcount=0;
@@ -227,7 +210,7 @@ function get_graph($conn, $id) {
                 while($row = $result->fetch_assoc()) {
                         $rowcount++;
                         echo "['";
-                        echo $row["hour"]. ":" . $row["minute"] . "-" . $row["day"] . "/" . $row["month"] . "/" . $row["year"];
+                        echo $row["recordtime"];
                         echo "',";
                         echo $row["systolic"];
                         echo ",";
@@ -281,8 +264,8 @@ function getmin($conn, $fname, $id)
 return $value;
 }
 ###############################################
-function get_rawdata($conn, $id, $name, $limit){
-        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by year desc, month desc, day desc, hour desc, minute desc limit " . $limit;
+function get_rawdata($conn, $id, $name){
+        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by recordtime desc";
         $result = $conn->query($sql);
 				echo "<b>Lịch sử các chỉ số huyết áp của " . $name . "</b>\n";
 				echo "id: " . $id . "<br>\n";
@@ -317,7 +300,7 @@ function get_rawdata($conn, $id, $name, $limit){
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
                         echo "<tr>\n";
-                        echo "<td>" . $row["hour"] . ":" . $row["minute"] . " " . $row["day"] . "/" . $row["month"] . "/" . $row["year"] . "</td>\n";
+                        echo "<td>" . $row["recordtime"] . "</td>\n";
                         echo "<td>" . $row["systolic"] . "</td>\n";
                         echo "<td>" . $row["diastolic"] . "</td>\n";
                         echo "<td>" . $row["heart_beat"] . "</td>\n";
