@@ -64,6 +64,7 @@ if ($bpid=="notset") {
 	}
 		echo "<hr>\n";
 		echo "<div id=\"curve_chart\"></div>\n";
+		echo "<div id=\"curve_chart\"></div>\n";
 		get_rawdata($conn, $bpid, $name);
 		echo "<br><a href=\"./?exit=1\" class=\"btn btn-warning\" role=\"button\">Thoát (Exit)</a><br>\n";
 }
@@ -203,7 +204,7 @@ function get_graph($conn, $id) {
         ############################################################
         $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 30 DAY) and NOW()";
         #echo $sql . "\n";
-	$result = $conn->query($sql);
+		$result = $conn->query($sql);
         $numofrow=$result->num_rows;
         $rowcount=0;
         if ($numofrow > 0) {
@@ -232,6 +233,57 @@ function get_graph($conn, $id) {
         echo "          ]);\n";
         echo "          var options = {\n";
         echo "            title: 'Biểu đồ 30 ngày gần đây',\n";
+        echo "            curveType: 'function',\n";
+				echo "				width: '100%',\n";
+				echo "				height: '600',\n";
+				echo "			  chartArea:{left:40,top:20,width:\"90%\",height:\"400\"},\n";
+        echo "            legend: { position: 'bottom' },\n";
+				echo "			  colors: ['green', 'blue', 'gray'],\n";
+				echo "            seriesType: 'line',\n";
+        echo "			  series: {2: {type: 'bars'}}\n";
+        echo "          };\n";
+        echo "          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));\n";
+        echo "  chart.draw(data, options);\n";
+        echo "    }\n";
+        echo "  </script>\n";
+        echo "  <script type=\"text/javascript\">\n";
+        echo "    google.charts.load('current', {'packages':['corechart']});\n";
+        echo "    google.charts.setOnLoadCallback(drawChart);\n";
+        echo "    function drawChart() {\n";
+        echo "          var data = google.visualization.arrayToDataTable([\n";
+        echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
+        ############################################################
+        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 180 DAY) and NOW()";
+        #echo $sql . "\n";
+		$result = $conn->query($sql);
+        $numofrow=$result->num_rows;
+        $rowcount=0;
+        if ($numofrow > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                        $rowcount++;
+                        echo "['";
+                        echo $row["recordtime"];
+                        echo "',";
+                        echo $row["systolic"];
+                        echo ",";
+                        echo $row["diastolic"];
+                        echo ",";
+                        echo $row["heart_beat"];
+                        echo "]";
+                        if ($rowcount < $numofrow) {
+                                echo ",\n";
+                        } else {
+                                echo "\n";
+                        }
+                }
+        } else {
+                echo "0 results\n";
+        }
+        ############################################################
+        echo "          ]);\n";
+        echo "          var options = {\n";
+        echo "            title: 'Biểu đồ 6 tháng gần đây',\n";
         echo "            curveType: 'function',\n";
 				echo "				width: '100%',\n";
 				echo "				height: '600',\n";
