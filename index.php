@@ -205,25 +205,25 @@ function get_graph($conn, $id) {
         echo "          var data = google.visualization.arrayToDataTable([\n";
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
-        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 30 DAY) and NOW()";
+        $sql1 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 30 DAY) and NOW()";
         #echo $sql . "\n";
-		$result = $conn->query($sql);
-        $numofrow=$result->num_rows;
-        $rowcount=0;
-        if ($numofrow > 0) {
+		$result1 = $conn->query($sql1);
+        $numofrow1=$result2->num_rows;
+        $rowcount1=0;
+        if ($numofrow 1> 0) {
                 // output data of each row
-                while($row = $result->fetch_assoc()) {
-                        $rowcount++;
+                while($row1 = $result1->fetch_assoc()) {
+                        $rowcount1++;
                         echo "['";
-                        echo $row["recordtime"];
+                        echo $row1["recordtime"];
                         echo "',";
-                        echo $row["systolic"];
+                        echo $row1["systolic"];
                         echo ",";
-                        echo $row["diastolic"];
+                        echo $row1["diastolic"];
                         echo ",";
-                        echo $row["heart_beat"];
+                        echo $row1["heart_beat"];
                         echo "]";
-                        if ($rowcount < $numofrow) {
+                        if ($rowcount1 < $numofrow1) {
                                 echo ",\n";
                         } else {
                                 echo "\n";
@@ -257,25 +257,25 @@ function get_graph($conn, $id) {
         echo "          var data = google.visualization.arrayToDataTable([\n";
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
-        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 180 DAY) and NOW()";
+        $sql2 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 180 DAY) and NOW()";
         #echo $sql . "\n";
-		$result = $conn->query($sql);
-        $numofrow=$result->num_rows;
-        $rowcount=0;
-        if ($numofrow > 0) {
+		$result2 = $conn->query($sql2);
+        $numofrow2=$result2->num_rows;
+        $rowcount2=0;
+        if ($numofrow2 > 0) {
                 // output data of each row
-                while($row = $result->fetch_assoc()) {
-                        $rowcount++;
+                while($row2 = $result2->fetch_assoc()) {
+                        $rowcount2++;
                         echo "['";
-                        echo $row["recordtime"];
+                        echo $row2["recordtime"];
                         echo "',";
-                        echo $row["systolic"];
+                        echo $row2["systolic"];
                         echo ",";
-                        echo $row["diastolic"];
+                        echo $row2["diastolic"];
                         echo ",";
-                        echo $row["heart_beat"];
+                        echo $row2["heart_beat"];
                         echo "]";
-                        if ($rowcount < $numofrow) {
+                        if ($rowcount2 < $numofrow2) {
                                 echo ",\n";
                         } else {
                                 echo "\n";
@@ -309,25 +309,25 @@ function get_graph($conn, $id) {
         echo "          var data = google.visualization.arrayToDataTable([\n";
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
-        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 365 DAY) and NOW()";
+        $sql3 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 365 DAY) and NOW()";
         #echo $sql . "\n";
-		$result = $conn->query($sql);
-        $numofrow=$result->num_rows;
-        $rowcount=0;
-        if ($numofrow > 0) {
+		$result3 = $conn->query($sql3);
+        $numofrow3=$result3->num_rows;
+        $rowcount3=0;
+        if ($numofrow3 > 0) {
                 // output data of each row
-                while($row = $result->fetch_assoc()) {
-                        $rowcount++;
+                while($row3 = $result3->fetch_assoc()) {
+                        $rowcount3++;
                         echo "['";
-                        echo $row["recordtime"];
+                        echo $row3["recordtime"];
                         echo "',";
-                        echo $row["systolic"];
+                        echo $row3["systolic"];
                         echo ",";
-                        echo $row["diastolic"];
+                        echo $row3["diastolic"];
                         echo ",";
-                        echo $row["heart_beat"];
+                        echo $row3["heart_beat"];
                         echo "]";
-                        if ($rowcount < $numofrow) {
+                        if ($rowcount3 < $numofrow3) {
                                 echo ",\n";
                         } else {
                                 echo "\n";
