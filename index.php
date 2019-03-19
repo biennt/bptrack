@@ -339,7 +339,7 @@ function get_graph($conn, $id) {
         ############################################################
         echo "          ]);\n";
         echo "          var options = {\n";
-        echo "            title: 'Biểu đồ 6 tháng gần đây',\n";
+        echo "            title: 'Biểu đồ 1 năm gần đây',\n";
         echo "            curveType: 'function',\n";
 				echo "				width: '100%',\n";
 				echo "				height: '600',\n";
