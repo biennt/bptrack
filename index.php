@@ -206,9 +206,9 @@ function get_graph($conn, $id) {
         echo "          var data = google.visualization.arrayToDataTable([\n";
         echo "            ['Time', 'Systolic', 'Diastolic', 'Heart beat'],\n";
         ############################################################
-        $sql1 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 30 DAY) and NOW() order by recordtime";
+        $sql1 = "SET time_zone = Asia/Saigon; SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 30 DAY) and NOW() order by recordtime";
         #echo $sql . "\n";
-		$result1 = $conn->query($sql1);
+	$result1 = $conn->query($sql1);
         $numofrow1=$result1->num_rows;
         $rowcount1=0;
         if ($numofrow1> 0) {
