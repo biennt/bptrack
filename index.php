@@ -29,6 +29,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed, die: " . $conn->connect_error);
 }
+$conn->query('SET time_zone = Asia/Saigon');
 
 if (isset($_POST['uname']) && isset($_POST['psw'])) {
 	$create_account = $_POST['create_account'];
