@@ -29,7 +29,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed, die: " . $conn->connect_error);
 }
-$conn->MySQLi->query("SET timezone = 'GMT+7'");
+$conn->query("SET timezone = 'GMT+7'");
 
 if (isset($_POST['uname']) && isset($_POST['psw'])) {
 	$create_account = $_POST['create_account'];
