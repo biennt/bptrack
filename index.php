@@ -29,7 +29,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed, die: " . $conn->connect_error);
 }
-$conn->query("SET timezone = 'GMT+7'");
+$conn->query("SET time_zone = 'Asia/Saigon'");
 
 if (isset($_POST['uname']) && isset($_POST['psw'])) {
 	$create_account = $_POST['create_account'];
@@ -260,7 +260,8 @@ function get_graph($conn, $id) {
         ############################################################
         $sql2 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 180 DAY) and NOW() order by recordtime";
         #echo $sql . "\n";
-		$result2 = $conn->query($sql2);
+	$conn->query("SET time_zone = 'Asia/Saigon'");
+	$result2 = $conn->query($sql2);
         $numofrow2=$result2->num_rows;
         $rowcount2=0;
         if ($numofrow2 > 0) {
@@ -312,7 +313,8 @@ function get_graph($conn, $id) {
         ############################################################
         $sql3 = "SELECT * FROM bpmain where bpid='" . $id . "'" . " and recordtime between DATE_SUB(NOW(), INTERVAL 365 DAY) and NOW() order by recordtime";
         #echo $sql . "\n";
-		$result3 = $conn->query($sql3);
+	$conn->query("SET time_zone = 'Asia/Saigon'");
+	$result3 = $conn->query($sql3);
         $numofrow3=$result3->num_rows;
         $rowcount3=0;
         if ($numofrow3 > 0) {
