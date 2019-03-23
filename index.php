@@ -64,10 +64,13 @@ if ($bpid=="notset") {
 		}
 	}
 		echo "<hr>\n";
+		echo "<h4>30 ngày trước</h4>\n";
 		echo "<div id=\"30_chart\"></div>\n";
 		echo "<br>\n";
+		echo "<h4>180 ngày trước</h4>\n";
 		echo "<div id=\"180_chart\"></div>\n";
 		echo "<br>\n";
+		echo "<h4>365 ngày trước</h4>\n";
 		echo "<div id=\"365_chart\"></div>\n";
 		get_rawdata($conn, $bpid, $name);
 		echo "<br><a href=\"./?exit=1\" class=\"btn btn-warning\" role=\"button\">Thoát (Exit)</a><br>\n";
