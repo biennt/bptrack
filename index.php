@@ -153,6 +153,18 @@ function print_login_form() {
 	echo "<br>\n";
 	echo "	  </div>\n";
 	echo "	</form>\n";
+	echo "<p>\n";
+	echo "Nếu bạn hoặc trong gia đình bạn có người bị bệnh cao huyết áp, việc đo và theo dõi các chỉ số huyết áp hàng ngày là cần thiết. Tôi viết cái app nhỏ này để làm điều đó cho mẹ tôi, nhưng ai cũng có thể dùng được miễn phí.\n";
+	echo "Bạn chỉ việc tạo một tài khoản và sử dụng</p>\n";
+	echo "<p><i>Lưu ý:</i></p>\n";
+	echo "<ul>\n";
+	echo "<li>Nó có thể hơi chậm một chút lúc đầu do tôi hosting cái app này miễn phí tại heroku.com</li>\n";
+	echo "<li>Tên đăng nhập chỉ gồm chữ cái và số, không chứa các ký tự đặc biệt</li>\n";
+	echo "<li>Tôi không lưu giữ địa chỉ email, số điện thoại hay bất cứ định danh nào của bạn ở chỗ khác để tránh các rắc rối liên quan đến danh tính của bạn.</li>\n";
+	echo "<li>Tôi cũng không giúp được bạn nếu bạn quên mật khẩu. Trong trường hợp như vậy, bạn cứ tạo account mới rồi tiếp tục dùng.</li>\n";
+	echo "<li>Mã nguồn ở đây https://github.com/biennt/bptrack/, bạn có thể copy về, sửa đổi rồi làm bất cứ điều gì bạn muốn. Tôi không chịu trách nhiệm về việc bạn dùng nó để làm gì. Nó tự do</li>\n";
+	echo "</ul>\n";
+
 }
 #####################################################
 function do_login($conn, $uname, $upass) {
