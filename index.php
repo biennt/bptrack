@@ -180,7 +180,7 @@ function do_create_account($conn, $uname, $upass) {
 	if (ctype_alnum($uname)) {
 		$sql = "INSERT into user (bpid, name, password) values ('". $uname . "','" . $uname . "','" . $hash . "')";
 		if (mysqli_query($conn, $sql)) {
-			echo "Đã lưu thành công<br>";
+			//echo "Đã lưu thành công<br>";
 			$bpid=$uname;
 			$_SESSION["bpid"] = $bpid;
 			$_SESSION["name"] = $bpid;
