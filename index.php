@@ -189,12 +189,15 @@ function do_create_account($conn, $uname, $upass) {
 			$error_code = mysqli_error($conn);
 			if (strpos($error_code,"Duplicate ") >=0) {
 				echo "Tên đăng nhập bị trùng, không tạo được tài khoản!<br>\n";
+				die;
 			} else {
 				echo "Error: ". $error_code . "<br>\n";
+				die;
 			}
 		}
 	} else {
 		echo "Tên đăng nhập chỉ gồm chữ cái và số<br>\n";
+		die;
 	}
 	return $bpid;
 }
