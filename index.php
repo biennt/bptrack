@@ -170,7 +170,7 @@ function print_login_form() {
 function do_login($conn, $uname, $upass) {
 	$bpid="notset";
 	if (ctype_alnum($uname)) {
-		$sql = "SELECT name, password FROM user where bpid='" . $uname . "'";
+		$sql = "SELECT name, password FROM user where bpid='" . $uname . "' limit 1";
 		$result = $conn->query($sql);
 		$numofrow=$result->num_rows;
 		if ($numofrow == 1) {
