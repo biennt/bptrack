@@ -1,4 +1,6 @@
 <?php
+header('X-XSS-Protection: 1; mode=block');
+header('X-Content-Type-Options: nosniff');
 session_start();
 date_default_timezone_set('Asia/Saigon');
 ### "Exit" button clicked ###
