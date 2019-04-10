@@ -103,6 +103,7 @@ function print_header($displaytype, $conn, $id) {
 
 #####################################################
 function print_footer(){
+	echo '<a href="https://seal.beyondsecurity.com/vulnerability-scanner-verification/bptrack.herokuapp.com"><img src="https://seal.beyondsecurity.com/verification-images/bptrack.herokuapp.com/vulnerability-scanner-2.gif" alt="Website Security Test" border="0"></a>';
 	echo "</body>\n";
 	echo "</html>\n";
 }
