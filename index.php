@@ -396,7 +396,7 @@ return $value;
 }
 ###############################################
 function get_rawdata($conn, $id, $name){
-        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by recordtime desc";
+        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by recordtime desc limit 30";
         $result = $conn->query($sql);
 				echo "<b>Lịch sử các chỉ số huyết áp của " . $name . "</b>\n";
 				echo "id: " . $id . "<br>\n";
