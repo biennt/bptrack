@@ -140,7 +140,7 @@ function print_bpinputform($bpid, $name) {
 }
 #####################################################
 function print_login_form() {
-	echo "<h3 align='center'>Blood presure tracking</h3>\n";
+	echo "<h3 align='center'>Blood pressure tracking</h3>\n";
 	echo "	 <form action=\"./\" method=\"post\">\n";
 	echo "	  <div class=\"form-group\" align=\"center\">\n";
 	echo "		<input type=\"text\" class=\"form-control\" name=\"uname\" placeholder=\"Login id\" required>\n";
