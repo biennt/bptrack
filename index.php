@@ -140,17 +140,17 @@ function print_bpinputform($bpid, $name) {
 }
 #####################################################
 function print_login_form() {
-	echo "<h3 align='center'>Sổ tay theo dõi huyết áp</h3>\n";
+	echo "<h3 align='center'>Blood presure tracking</h3>\n";
 	echo "	 <form action=\"./\" method=\"post\">\n";
 	echo "	  <div class=\"form-group\" align=\"center\">\n";
-	echo "		<input type=\"text\" class=\"form-control\" name=\"uname\" placeholder=\"Tên đăng nhập\" required>\n";
+	echo "		<input type=\"text\" class=\"form-control\" name=\"uname\" placeholder=\"Login id\" required>\n";
 	echo "<br>\n";
-	echo "		<input type=\"password\" class=\"form-control\" name=\"psw\" placeholder=\"Mật khẩu\" required>\n";
+	echo "		<input type=\"password\" class=\"form-control\" name=\"psw\" placeholder=\"Password\" required>\n";
 	echo "<br>\n";
 	echo "<div class=\"checkbox\">\n";
-	echo "<label><input type=\"checkbox\" name=\"create_account\">Tạo mới tài khoản</label>\n";
+	echo "<label><input type=\"checkbox\" name=\"create_account\">Create an ID</label>\n";
 	echo "</div>\n";
-	echo "		<button type=\"submit\" class=\"btn btn-primary\">Đăng nhập</button>\n";
+	echo "		<button type=\"submit\" class=\"btn btn-primary\">Login</button>\n";
 	echo "<br>\n";
 	echo "	  </div>\n";
 	echo "	</form>\n";
@@ -255,7 +255,7 @@ function get_graph($conn, $id) {
         ############################################################
         echo "          ]);\n";
         echo "          var options = {\n";
-        echo "            title: 'Biểu đồ 30 ngày gần đây',\n";
+        echo "            title: 'Last 30 days data',\n";
         echo "            curveType: 'function',\n";
 				echo "				width: '100%',\n";
 				echo "				height: '600',\n";
@@ -308,7 +308,7 @@ function get_graph($conn, $id) {
         ############################################################
         echo "          ]);\n";
         echo "          var options = {\n";
-        echo "            title: 'Biểu đồ 6 tháng gần đây',\n";
+        echo "            title: 'Last 6 months data',\n";
         echo "            curveType: 'function',\n";
 				echo "				width: '100%',\n";
 				echo "				height: '600',\n";
@@ -361,7 +361,7 @@ function get_graph($conn, $id) {
         ############################################################
         echo "          ]);\n";
         echo "          var options = {\n";
-        echo "            title: 'Biểu đồ 1 năm gần đây',\n";
+        echo "            title: 'Last one year',\n";
         echo "            curveType: 'function',\n";
 				echo "				width: '100%',\n";
 				echo "				height: '600',\n";
