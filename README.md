@@ -1,4 +1,4 @@
-# bptrack - Sổ tay theo dõi huyếp áp - Blood presure tracking
+# bptrack - Sổ tay theo dõi huyếp áp - Blood pressure tracking
 Nếu bạn hoặc trong gia đình bạn có người bị bệnh cao huyết áp, việc đo và theo dõi các chỉ số huyết áp hàng ngày là cần thiết. Tôi viết cái app nhỏ này để làm điều đó cho mẹ tôi, nhưng ai cũng có thể dùng được miễn phí.<br>
 Bạn chỉ việc tạo một tài khoản và sử dụng từ đường link này https://bptrack.herokuapp.com/<br>
 # Lưu ý: 
