@@ -42,7 +42,7 @@ if (isset($_POST['uname']) && isset($_POST['psw'])) {
 		$name = $_SESSION['name'];
 	}
 	if ($bpid == "notset") {
-		echo "Đăng nhập không thành công!\n";
+		echo "Login failed!\n";
 	}
 }
 
@@ -64,13 +64,8 @@ if ($bpid=="notset") {
 		}
 	}
 		echo "<hr>\n";
-		echo "<h4>30 ngày trước</h4>\n";
 		echo "<div id=\"30_chart\"></div>\n";
-		echo "<br>\n";
-		echo "<h4>180 ngày trước</h4>\n";
 		echo "<div id=\"180_chart\"></div>\n";
-		echo "<br>\n";
-		echo "<h4>365 ngày trước</h4>\n";
 		echo "<div id=\"365_chart\"></div>\n";
 		get_rawdata($conn, $bpid, $name);
 		echo "<br><a href=\"./?exit=1\" class=\"btn btn-warning\" role=\"button\">Thoát (Exit)</a><br>\n";
@@ -109,33 +104,33 @@ function print_footer(){
 function savebpinfo($conn, $id, $time, $systolic, $diastolic, $heart_beat) {
 	$sql = "INSERT INTO bpmain (bpid, recordtime, systolic, diastolic, heart_beat) values('" . $id . "','" . $time . "'," . $systolic . "," . $diastolic . "," . $heart_beat . ")";
 	if (mysqli_query($conn, $sql)) {
-		echo "Đã lưu thành công<br>";
+		echo "Record saved<br>";
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 }
 #####################################################
 function print_bpinputform($bpid, $name) {
-	echo "<b>Nhập các chỉ số huyết áp cho " . $name . "</b><br>\n";
+	echo "<b>Input data " . $name . "</b><br>\n";
 	echo "id: " . $bpid . "<br>\n";
 	echo "<form method='POST' action=\"./\">\n";
 	echo "  <div class=\"form-group\">\n";
-	echo "    <label for=\"Time\">Thời gian đo</label>\n";
+	echo "    <label for=\"Time\">Record time</label>\n";
 	echo "    <input type=\"text\" class=\"form-control\" name=\"time\" id=\"time\" value='" . date('Y-m-d H:i:s') . "'>\n";
 	echo "  </div>\n";
 	echo "  <div class=\"form-group\">\n";
-	echo "    <label for=\"systolic\">Tâm thu (Systolic)</label>\n";
+	echo "    <label for=\"systolic\">Systolic</label>\n";
 	echo "    <input type=\"number\" class=\"form-control\" name=\"systolic\" id=\"systolic\">\n";
 	echo "  </div>\n";
 	echo "  <div class=\"form-group\">\n";
-	echo "    <label for=\"diastolic\">Tâm trương (Diastolic)</label>\n";
+	echo "    <label for=\"diastolic\">Diastolic</label>\n";
 	echo "    <input type=\"number\" class=\"form-control\" name=\"diastolic\" id=\"diastolic\">\n";
 	echo "  </div>\n";
 	echo "  <div class=\"form-group\">\n";
-	echo "    <label for=\"heart_beat\">Nhịp tim (Heart rate)</label>\n";
+	echo "    <label for=\"heart_beat\">Heart rate</label>\n";
 	echo "    <input type=\"number\" class=\"form-control\" name=\"heart_beat\" id=\"heart_beat\">\n";
 	echo "  </div>\n";
-	echo "  <button type=\"submit\" class=\"btn btn-primary\">Lưu lại (Save)</button>\n";
+	echo "  <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n";
 	echo "</form>\n";
 }
 #####################################################
@@ -201,7 +196,7 @@ function do_create_account($conn, $uname, $upass) {
 		} else {
 			$error_code = mysqli_error($conn);
 			if (strpos($error_code,"Duplicate ") >=0) {
-				echo "Tên đăng nhập bị trùng, không tạo được tài khoản!<br>\n";
+				echo "Duplicate id!<br>\n";
 				die;
 			} else {
 				echo "Error: ". $error_code . "<br>\n";
@@ -209,7 +204,7 @@ function do_create_account($conn, $uname, $upass) {
 			}
 		}
 	} else {
-		echo "Tên đăng nhập chỉ gồm chữ cái và số<br>\n";
+		echo "ID must contains only alpha-numeric characters<br>\n";
 		die;
 	}
 	return $bpid;
@@ -405,23 +400,23 @@ function get_rawdata($conn, $id, $name){
         echo "<tr>\n";
 
         echo "<td>\n";
-        echo "Thời gian đo\n";
+        echo "Record time\n";
         echo "</td>\n";
 
         echo "<td>\n";
-        echo "Tâm thu<br>\n";
+        echo "Systolic<br>\n";
         echo "Max=". getmax($conn, "systolic", $id) . "<br>\n";
         echo "Min=". getmin($conn, "systolic", $id) . "<br>\n";
         echo "</td>\n";
 
         echo "<td>\n";
-        echo "Tâm trương<br>\n";
+        echo "Diastolic<br>\n";
         echo "Max=". getmax($conn, "diastolic", $id) . "<br>\n";
         echo "Min=". getmin($conn, "diastolic", $id) . "<br>\n";
         echo "</td>\n";
 
         echo "<td>\n";
-        echo "Nhịp tim<br>\n";
+        echo "Heart rate<br>\n";
         echo "Max=". getmax($conn, "heart_beat", $id) . "<br>\n";
         echo "Min=". getmin($conn, "heart_beat", $id) . "<br>\n";
         echo "</td>\n";
