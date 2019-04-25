@@ -393,7 +393,7 @@ return $value;
 function get_rawdata($conn, $id, $name){
         $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by recordtime desc limit 10";
         $result = $conn->query($sql);
-				echo "<b>Lịch sử các chỉ số huyết áp của " . $name . "</b>\n";
+				echo "<b>Historical data " . $name . "</b>\n";
 				echo "id: " . $id . "<br>\n";
         echo "<div class='table-responsive'>\n";
         echo "<table class='table'>\n";
