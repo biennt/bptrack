@@ -1,6 +1,6 @@
 <?php
 require 'restful_api.php';
-require 'dbconf.php';
+
 class api extends restful_api {
 	function __construct(){
 		parent::__construct();
@@ -10,6 +10,7 @@ class api extends restful_api {
 			// Hãy viết code xử lý LẤY dữ liệu ở đây
 			// trả về dữ liệu bằng cách gọi: $this->response(200, $data)
 			$data = "";
+			require_once 'dbconf.php';
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
 			if ($conn->connect_error) {
