@@ -22,7 +22,7 @@ class api extends restful_api {
 				if ($numofrow == 1) {
 					$row = $result->fetch_assoc();
 					$password=$row['password'];
-					$username=$row['name'];
+					$name=$row['name'];
 					$arr = array('name' => $name, 'password' => $password);
 					$data = json_encode($arr);
 				} else {
