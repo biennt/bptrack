@@ -13,7 +13,7 @@ class api extends restful_api {
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
 			if ($conn->connect_error) {
-    			die("Connection failed, die: " . $conn->connect_error);
+    			$data=("Connection failed, die: " . $servername);
 			}
 			$conn->query("SET time_zone = 'Asia/Saigon'");
 			$sql = "SELECT name, password FROM user where bpid=1";
