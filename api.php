@@ -25,7 +25,7 @@ class api extends restful_api {
 					$name=$row['name'];
 					$arr = array('name' => $name, 'password' => $password);
 					$data = json_encode($arr);
-					$data = preg_replace('/\\\\\"/',"\"", $data);
+					$data = stripslashes($data);
 				} else {
 					$data = "query error";
 				}
