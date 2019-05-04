@@ -28,6 +28,7 @@ class api extends restful_api {
 					$data = "query error";
 				}
 			}
+			$conn->close();
 			$this->response(200, $data);
 		}
 		elseif ($this->method == 'POST'){
