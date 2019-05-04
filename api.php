@@ -23,9 +23,7 @@ class api extends restful_api {
 					$row = $result->fetch_assoc();
 					$password=$row['password'];
 					$name=$row['name'];
-					$arr = array('name' => $name, 'password' => $password);
-					$data = json_encode($arr);
-					$data = stripslashes($data);
+					$data = array('name' => $name, 'password' => $password);
 				} else {
 					$data = "query error";
 				}
