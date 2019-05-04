@@ -18,6 +18,7 @@ class api extends restful_api {
 				$conn->query("SET time_zone = 'Asia/Saigon'");
 				$sql = "SELECT name, password FROM user where bpid='1'";
 				$result = $conn->query($sql);
+				$numofrow=$result->num_rows;
 				if ($numofrow == 1) {
 					$row = $result->fetch_assoc();
 					$password=$row['password'];
