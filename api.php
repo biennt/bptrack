@@ -24,7 +24,7 @@ class api extends restful_api {
 					$password=$row['password'];
 					$name=$row['name'];
 					$arr = array('name' => $name, 'password' => $password);
-					$data = json_encode($arr);
+					$data = json_encode($arr,JSON_FORCE_OBJECT);
 				} else {
 					$data = "query error";
 				}
