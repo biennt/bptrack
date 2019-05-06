@@ -29,7 +29,7 @@ class api extends restful_api {
 						$name=$row['name'];
 						$data = array('name' => $name, 'password' => $password);
 					} else {
-						$data = "query error";
+						$data = "no record";
 					}
 				} else {
 					$data = "invalid params: " . $uid;
