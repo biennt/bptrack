@@ -16,16 +16,21 @@ class api extends restful_api {
     				$data = "Connection failed, die with " . $servername;
 			} else {
 				$conn->query("SET time_zone = 'Asia/Saigon'");
-				$sql = "SELECT name, password FROM user where bpid='1'";
-				$result = $conn->query($sql);
-				$numofrow=$result->num_rows;
-				if ($numofrow == 1) {
-					$row = $result->fetch_assoc();
-					$password=$row['password'];
-					$name=$row['name'];
-					$data = array('name' => $name, 'password' => $password);
+				$uid=$params[1];
+				if (ctype_alnum($uid)) {
+					$sql = "SELECT name, password FROM user where bpid='" . $uid . "'";
+					$result = $conn->query($sql);
+					$numofrow=$result->num_rows;
+					if ($numofrow == 1) {
+						$row = $result->fetch_assoc();
+						$password=$row['password'];
+						$name=$row['name'];
+						$data = array('name' => $name, 'password' => $password);
+					} else {
+						$data = "query error";
+					}
 				} else {
-					$data = "query error";
+					$data = "invalid params";
 				}
 			}
 			$conn->close();
