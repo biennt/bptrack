@@ -16,7 +16,7 @@ class api extends restful_api {
     				$data = "Connection failed, die with " . $servername;
 			} else {
 				$conn->query("SET time_zone = 'Asia/Saigon'");
-				$uid = $this->params[0]
+				$uid = $this->params[0];
 				$endpoint = $this->endpoint;
 				//$data = "DEBUG params: " . $uid . " endpoint: " . $endpoint;
 				if (ctype_alnum($uid)) {
