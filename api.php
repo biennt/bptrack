@@ -16,7 +16,7 @@ class api extends restful_api {
     				$data = "Connection failed, die with " . $servername;
 			} else {
 				$conn->query("SET time_zone = 'Asia/Saigon'");
-				$uid=$params[1];
+				$uid=$this->$params[0];
 				if (ctype_alnum($uid)) {
 					$sql = "SELECT name, password FROM user where bpid='" . $uid . "'";
 					$result = $conn->query($sql);
