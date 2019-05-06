@@ -16,25 +16,24 @@ class api extends restful_api {
     				$data = "Connection failed, die with " . $servername;
 			} else {
 				$conn->query("SET time_zone = 'Asia/Saigon'");
-				$para = $this->params;
-				$uid = $para[0];
+				$uid = $this->params[0]
 				$endpoint = $this->endpoint;
-				$data = "DEBUG params: " . $uid . " endpoint: " . $endpoint;
-				//if (ctype_alnum($uid)) {
-				//	$sql = "SELECT name, password FROM user where bpid='" . $uid . "'";
-				//	$result = $conn->query($sql);
-				//	$numofrow=$result->num_rows;
-				//	if ($numofrow == 1) {
-				//		$row = $result->fetch_assoc();
-				//		$password=$row['password'];
-				//		$name=$row['name'];
-				//		$data = array('name' => $name, 'password' => $password);
-				//	} else {
-				//		$data = "query error";
-				//	}
-				//} else {
-				//	$data = "invalid params: " . $uid;
-				//}
+				//$data = "DEBUG params: " . $uid . " endpoint: " . $endpoint;
+				if (ctype_alnum($uid)) {
+					$sql = "SELECT name, password FROM user where bpid='" . $uid . "'";
+					$result = $conn->query($sql);
+					$numofrow=$result->num_rows;
+					if ($numofrow == 1) {
+						$row = $result->fetch_assoc();
+						$password=$row['password'];
+						$name=$row['name'];
+						$data = array('name' => $name, 'password' => $password);
+					} else {
+						$data = "query error";
+					}
+				} else {
+					$data = "invalid params: " . $uid;
+				}
 			}
 			$conn->close();
 			$this->response(200, $data);
