@@ -18,21 +18,21 @@ class api extends restful_api {
 				$conn->query("SET time_zone = 'Asia/Saigon'");
 				$uid = $this->$params[1];
 				$data = "DEBUG params: " . $uid;
-				if (ctype_alnum($uid)) {
-					$sql = "SELECT name, password FROM user where bpid='" . $uid . "'";
-					$result = $conn->query($sql);
-					$numofrow=$result->num_rows;
-					if ($numofrow == 1) {
-						$row = $result->fetch_assoc();
-						$password=$row['password'];
-						$name=$row['name'];
-						$data = array('name' => $name, 'password' => $password);
-					} else {
-						$data = "query error";
-					}
-				} else {
-					$data = "invalid params: " . $uid;
-				}
+				//if (ctype_alnum($uid)) {
+				//	$sql = "SELECT name, password FROM user where bpid='" . $uid . "'";
+				//	$result = $conn->query($sql);
+				//	$numofrow=$result->num_rows;
+				//	if ($numofrow == 1) {
+				//		$row = $result->fetch_assoc();
+				//		$password=$row['password'];
+				//		$name=$row['name'];
+				//		$data = array('name' => $name, 'password' => $password);
+				//	} else {
+				//		$data = "query error";
+				//	}
+				//} else {
+				//	$data = "invalid params: " . $uid;
+				//}
 			}
 			$conn->close();
 			$this->response(200, $data);
