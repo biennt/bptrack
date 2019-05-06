@@ -30,7 +30,7 @@ class api extends restful_api {
 						$data = "query error";
 					}
 				} else {
-					$data = "invalid params";
+					$data = "invalid params: " . $uid;
 				}
 			}
 			$conn->close();
