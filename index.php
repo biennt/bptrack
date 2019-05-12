@@ -43,6 +43,7 @@ if (isset($_POST['uname']) && isset($_POST['psw'])) {
 	}
 	if ($bpid == "notset") {
 		echo "Login failed!\n";
+		die();
 	}
 }
 
