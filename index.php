@@ -392,7 +392,7 @@ return $value;
 }
 ###############################################
 function get_rawdata($conn, $id, $name){
-        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by recordtime desc limit 10";
+        $sql = "SELECT * FROM bpmain where bpid='" . $id . "'" . " order by recordtime desc";
         $result = $conn->query($sql);
 				echo "<b>Historical data " . $name . "</b>\n";
 				echo "id: " . $id . "<br>\n";
