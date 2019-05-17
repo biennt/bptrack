@@ -18,14 +18,13 @@ class api extends restful_api {
 				$conn->query("SET time_zone = 'Asia/Saigon'");
 				$uid = $this->params[0];
 				if (ctype_alnum($uid)) {
-					$sql = "SELECT name, password FROM user where bpid='" . $uid . "'";
+					$sql = "SELECT name FROM user where bpid='" . $uid . "'";
 					$result = $conn->query($sql);
 					$numofrow=$result->num_rows;
 					if ($numofrow == 1) {
 						$row = $result->fetch_assoc();
-						$password=$row['password'];
 						$name=$row['name'];
-						$data = array('name' => $name, 'password' => $password);
+						$data = array('name' => $name);
 					} else {
 						$data = "no record";
 					}
