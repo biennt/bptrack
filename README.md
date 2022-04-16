@@ -8,4 +8,4 @@ Nếu bạn hoặc trong gia đình bạn có người bị bệnh cao huyết �
 - Mã nguồn ở đây bạn có thể copy về, sửa đổi rồi làm bất cứ điều gì bạn muốn. Tôi không chịu trách nhiệm về việc bạn dùng nó để làm gì. Nó tự do
 
 # Góp ý, đóng góp:
-- Nếu bạn có thời gian và biết lập trình. Bạn có thể sửa đổi cái này, thêm các tính năng hoặc sửa lỗi.. và nếu bạn muốn góp ý, đóng góp lại cho tôi những phần sửa đổi đó. Tôi rất cám ơn và đương nhiên là sẽ nhận lấy sự giúp đỡ đó nếu phù hợp. Email của tôi là bien@bienlab.com
+- Nếu bạn có thời gian và biết lập trình. Bạn có thể sửa đổi cái này, thêm các tính năng hoặc sửa lỗi.. và nếu bạn muốn góp ý, đóng góp lại cho tôi những phần sửa đổi đó. Tôi rất cám ơn và đương nhiên là sẽ nhận lấy sự giúp đỡ đó nếu phù hợp.
